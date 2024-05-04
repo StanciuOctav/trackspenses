@@ -8,12 +8,12 @@
 import SwiftUI
 
 /// This view should display a list with all the expenses added in the app, some sort of history
-struct ProfileView: View {
+struct HistoryView: View {
     var body: some View {
         Text("Profile")
     }
 }
 
 #Preview {
-    ProfileView()
+    HistoryView()
 }

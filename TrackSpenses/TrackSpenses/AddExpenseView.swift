@@ -7,9 +7,10 @@
 
 import SwiftUI
 
+/// This view should be able to make the addition of a new acquisition by date, price, category etc and confirm if it were added or not
 struct AddExpenseView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Add Expense")
     }
 }
 
