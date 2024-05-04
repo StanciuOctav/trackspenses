@@ -15,6 +15,7 @@
 		9D2A382C2BE4C98900881F04 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2A382B2BE4C98900881F04 /* Item.swift */; };
 		9D2A382E2BE4C98A00881F04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D2A382D2BE4C98A00881F04 /* Assets.xcassets */; };
 		9D2A38312BE4C98A00881F04 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D2A38302BE4C98A00881F04 /* Preview Assets.xcassets */; };
+		9D8D2B162BE6B5B30008B471 /* AcqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8D2B152BE6B5B30008B471 /* AcqModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		9D2A382B2BE4C98900881F04 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		9D2A382D2BE4C98A00881F04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D2A38302BE4C98A00881F04 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9D8D2B152BE6B5B30008B471 /* AcqModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcqModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,8 @@
 		9D2A38262BE4C98900881F04 /* TrackSpenses */ = {
 			isa = PBXGroup;
 			children = (
+				9D8D2B172BE6B75F0008B471 /* Extensions */,
+				9D8D2B142BE6B59A0008B471 /* Models */,
 				9D2A38272BE4C98900881F04 /* TrackSpensesApp.swift */,
 				9D2A38292BE4C98900881F04 /* ContentView.swift */,
 				9D2A382B2BE4C98900881F04 /* Item.swift */,
@@ -77,6 +81,21 @@
 				9D2A38302BE4C98A00881F04 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9D8D2B142BE6B59A0008B471 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9D8D2B152BE6B5B30008B471 /* AcqModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9D8D2B172BE6B75F0008B471 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,6 +173,7 @@
 				9D16AC1B2BE4CB1700FBAF47 /* AddExpenseView.swift in Sources */,
 				9D2A382C2BE4C98900881F04 /* Item.swift in Sources */,
 				9D16AC1D2BE4CB2700FBAF47 /* HistoryView.swift in Sources */,
+				9D8D2B162BE6B5B30008B471 /* AcqModel.swift in Sources */,
 				9D2A38282BE4C98900881F04 /* TrackSpensesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

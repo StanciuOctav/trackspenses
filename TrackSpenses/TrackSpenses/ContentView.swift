@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-
+    
     @State private var gearTabEffect: Bool = false
     
     var body: some View {
@@ -18,10 +18,14 @@ struct ContentView: View {
                     Label("Current month", systemImage: "doc.text")
                 }
             
-            AddExpenseView()
-                .tabItem {
-                    Label("Add acquisition", systemImage: "plus.circle")
-                }
+            NavigationStack {
+                AddExpenseView()
+                    .navigationTitle("New Acquisition")
+                    .navigationBarTitleDisplayMode(.inline)
+            }
+            .tabItem {
+                Label("Add acquisition", systemImage: "plus.circle")
+            }
             
             HistoryView()
                 .tabItem {
