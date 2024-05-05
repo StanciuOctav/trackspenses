@@ -10,17 +10,6 @@ import SwiftData
 
 enum ExpenseCategory: String, CaseIterable, Codable {
     case food, entertainment, rent, savings, installments, others
-    
-    var color: Color {
-        switch self {
-        case .food: .green
-        case .entertainment: .indigo
-        case .rent: .red
-        case .savings: .blue
-        case .installments: .yellow
-        case .others: .gray
-        }
-    }
 }
 
 class AcqModel: Hashable {

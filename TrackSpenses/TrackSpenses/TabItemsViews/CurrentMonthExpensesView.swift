@@ -32,27 +32,31 @@ struct CurrentMonthExpensesView: View {
     
     @State private var chartData: [AcqModel] = []
     @State private var totalSpent: Double = 0.0
+    @State private var selectedSector: Double?
+    @State private var selectedTotalAcquisition: AcqModel?
     
     var body: some View {
         Form {
             Section {
                 /// Make the chart interactive https://swdevnotes.com/swift/2023/create-a-pie-or-donut-chart-with-swiftui-charts-in-ios-17/
-                Chart(chartData.sorted(by: { $0.category.rawValue < $1.category.rawValue }), id: \.category) { dataItem in
+                Chart(chartData, id: \.category) { dataItem in
                     SectorMark(angle: .value("Price", dataItem.price),
                                innerRadius: .ratio(0.6),
+                               outerRadius: selectedTotalAcquisition == dataItem ? 175 : 120,
                                angularInset: 2)
                     .cornerRadius(5)
                     .foregroundStyle(by: .value("Category", dataItem.category.rawValue.capitalized))
                 }
-                .frame(minHeight: 300)
+                .scaledToFill()
+                .chartAngleSelection(value: $selectedSector)
                 .chartBackground { chartProxy in
                     GeometryReader { geometry in
                         let frame = geometry[chartProxy.plotFrame!]
                         VStack {
-                            Text("Total")
+                            Text((selectedTotalAcquisition != nil ? selectedTotalAcquisition?.category.rawValue.capitalized : "Total") ?? "")
                                 .font(.callout)
                                 .foregroundStyle(.secondary)
-                            Text(totalSpent.formatted(.number.grouping(.automatic).precision(.fractionLength(2))))
+                            Text((selectedTotalAcquisition != nil ? selectedTotalAcquisition?.price.formatted(.number.grouping(.automatic).precision(.fractionLength(2))) : totalSpent.formatted(.number.grouping(.automatic).precision(.fractionLength(2)))) ?? "")
                                 .font(.title2.bold())
                                 .foregroundColor(.primary)
                                 .padding(.horizontal)
@@ -82,6 +86,13 @@ struct CurrentMonthExpensesView: View {
         .navigationDestination(for: AcqModel.self, destination: { value in
             CategoryView(acquisition: value)
         })
+        .onChange(of: selectedSector, { oldValue, newValue in
+            if let newValue {
+                withAnimation {
+                    selectedSector(value: newValue)
+                }
+            }
+        })
         .onAppear {
             self.createChartData()
             self.calculateTotal()
@@ -104,10 +115,24 @@ struct CurrentMonthExpensesView: View {
                     notes: nil
                 )
             }
+            .sorted(by: { $0.price < $1.price })
     }
     
     private func calculateTotal() {
         self.totalSpent = chartData.reduce(0.0) { $0 + $1.price }
+    }
+    
+    private func selectedSector(value: Double) {
+        var comulativeTotal = 0.0
+        let _ = chartData
+            .first { element in
+                comulativeTotal += element.price
+                if value <= comulativeTotal {
+                    selectedTotalAcquisition = element
+                    return true
+                }
+                return false
+            }
     }
 }
 
