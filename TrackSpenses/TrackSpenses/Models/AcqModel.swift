@@ -10,10 +10,21 @@ import SwiftData
 
 enum ExpenseCategory: String, CaseIterable, Codable {
     case food, entertainment, rent, savings, installments, others
+    
+    var color: Color {
+        switch self {
+        case .food: .green
+        case .entertainment: .indigo
+        case .rent: .red
+        case .savings: .blue
+        case .installments: .yellow
+        case .others: .gray
+        }
+    }
 }
 
-@Model
-class AcqModel {
+class AcqModel: Hashable {
+    
     var name: String = ""
     var date: Date = Date.now
     var price: Double = 0.0
@@ -26,5 +37,17 @@ class AcqModel {
         self.price = price
         self.category = category
         self.notes = notes
+    }
+    
+    static func == (lhs: AcqModel, rhs: AcqModel) -> Bool {
+        lhs.name == rhs.name && lhs.category == rhs.category
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+        hasher.combine(date)
+        hasher.combine(price)
+        hasher.combine(category)
+        hasher.combine(notes)
     }
 }
