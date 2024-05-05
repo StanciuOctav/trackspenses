@@ -13,10 +13,12 @@ struct RootView: View {
     
     var body: some View {
         TabView {
-            CurrentMonthExpensesView()
-                .tabItem {
-                    Label("Current month", systemImage: "doc.text")
-                }
+            NavigationStack {
+                CurrentMonthExpensesView()
+                    .tabItem {
+                        Label("Current month", systemImage: "doc.text")
+                    }
+            }
             
             NavigationStack {
                 AddExpenseView()
