@@ -10,18 +10,13 @@ import SwiftUI
 /// This view should be able to make the addition of a new acquisition by date, price, category etc and confirm if it were added or not
 struct AddExpenseView: View {
     
-    @State private var name: String = ""
-    @State private var date: Date = .now
-    @State private var price: Double?
-    @State private var category: ExpenseCategory = .food
-    @State private var notes: String = ""
+    @State private var model = ExpenseModel()
     
     var body: some View {
         Form {
-            
             Section {
                 HStack {
-                    TextField("eg. iPhone 15 Pro", text: $name, axis: .vertical)
+                    TextField("eg. iPhone 15 Pro", text: $model.name, axis: .vertical)
                         .multilineTextAlignment(.leading)
                         .tint(.primary)
                         .textFieldStyle(.plain)
@@ -29,7 +24,7 @@ struct AddExpenseView: View {
             }
             
             Section(header: Text("Date of purchase")) {
-                DatePicker("The date of purchase", selection: $date, displayedComponents: .date)
+                DatePicker("The date of purchase", selection: $model.date, displayedComponents: .date)
                     .datePickerStyle(.graphical)
             }
             
@@ -37,20 +32,21 @@ struct AddExpenseView: View {
                 HStack {
                     Text("Price")
                     Spacer()
-                    TextField("Price", value: $price, format: .number)
+                    TextField("Price", value: $model.price, format: .number)
                         .keyboardType(.decimalPad)
                         .multilineTextAlignment(.trailing)
                 }
                 
-                Picker("Category", selection: $category) {
+                Picker("Category", selection: $model.category) {
                     ForEach(ExpenseCategory.allCases, id: \.self) { category in
                         Text(category.rawValue.capitalized).tag(category)
                     }
                 }
                 .pickerStyle(.automatic)
             }
+            
             VStack {
-                TextField("Notes...", text: $notes, axis: .vertical)
+                TextField("Notes...", text: $model.notes, axis: .vertical)
                     .tint(.primary)
                     .multilineTextAlignment(.leading)
                     .ignoresSafeArea(.all, edges: .all)
@@ -70,20 +66,12 @@ struct AddExpenseView: View {
             
             ToolbarItem(placement: .topBarLeading) {
                 Button {
-                    resetData()
+                    model.resetProperties()
                 } label: {
                     Text("Clear all")
                 }
             }
         }
-    }
-    
-    private func resetData() {
-        name = ""
-        date = .now
-        price = nil
-        category = .food
-        notes = ""
     }
 }
 

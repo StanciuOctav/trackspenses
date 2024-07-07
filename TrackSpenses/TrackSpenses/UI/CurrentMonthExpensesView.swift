@@ -10,30 +10,16 @@ import SwiftUI
 
 /// This should display a chart with all the expense and the total inside of it (also this view should be reusable for the profil view to show for previous months
 /// Underneath should be a list with all the expenses and date and when tapped, the user should be redirected to all the details of it
-/// An element could have beed bought multiple times (eg. diesel for the car in 2 separate dates)
+/// An element could have been bought multiple times (eg. diesel for the car in 2 separate dates)
 struct CurrentMonthExpensesView: View {
     
     /// This needs to be sorted
-    var mockData = [
-        AcqModel(name: "A", date: .now, price: 21.3, category: .entertainment, notes: "ASD"),
-        AcqModel(name: "F", date: .now, price: 341.3, category: .entertainment, notes: "ASD"),
-        AcqModel(name: "H", date: .now, price: 123.3, category: .entertainment, notes: "ASD"),
-        AcqModel(name: "B", date: .now, price: 31.3, category: .food, notes: "ASD"),
-        AcqModel(name: "C", date: .now, price: 423.3, category: .food, notes: "ASD"),
-        AcqModel(name: "L", date: .now, price: 654.3, category: .food, notes: "ASD"),
-        AcqModel(name: "I", date: .now, price: 6534.3, category: .installments, notes: "ASD"),
-        AcqModel(name: "D", date: .now, price: 112.1443, category: .installments, notes: "ASD"),
-        AcqModel(name: "E", date: .now, price: 4223.3, category: .rent, notes: "ASD"),
-        AcqModel(name: "K", date: .now, price: 654.3, category: .rent, notes: "ASD"),
-        AcqModel(name: "G", date: .now, price: 212.13, category: .savings, notes: "ASD"),
-        AcqModel(name: "J", date: .now, price: 8765.3, category: .savings, notes: " ASD"),
-        AcqModel(name: "K", date: .now, price: 2112.1, category: .others, notes: "ASD"),
-    ]
+    var mockData = ExpenseMock.mockData
     
-    @State private var chartData: [AcqModel] = []
+    @State private var chartData: [ExpenseModel] = []
     @State private var totalSpent: Double = 0.0
     @State private var selectedSector: Double?
-    @State private var selectedTotalAcquisition: AcqModel?
+    @State private var selectedTotalAcquisition: ExpenseModel?
     
     var body: some View {
         Form {
@@ -56,7 +42,7 @@ struct CurrentMonthExpensesView: View {
                             Text((selectedTotalAcquisition != nil ? selectedTotalAcquisition?.category.rawValue.capitalized : "Total") ?? "")
                                 .font(.callout)
                                 .foregroundStyle(.secondary)
-                            Text((selectedTotalAcquisition != nil ? selectedTotalAcquisition?.price.formatted(.number.grouping(.automatic).precision(.fractionLength(2))) : totalSpent.formatted(.number.grouping(.automatic).precision(.fractionLength(2)))) ?? "")
+                            Text((selectedTotalAcquisition != nil ? selectedTotalAcquisition?.price.twoDigitPrecision : totalSpent.twoDigitPrecision) ?? "")
                                 .font(.title2.bold())
                                 .foregroundColor(.primary)
                                 .padding(.horizontal)
@@ -71,8 +57,7 @@ struct CurrentMonthExpensesView: View {
                     NavigationLink(value: data) {
                         HStack {
                             Text(data.name)
-                            Spacer()
-                            Text(data.price.formatted(.number.grouping(.automatic).precision(.fractionLength(2))))
+                                .badge(data.price.twoDigitPrecision)
                         }
                         .swipeActions(edge: .trailing, allowsFullSwipe: true) {
                             Button("Delete", systemImage: "trash", role: .destructive) {
@@ -83,7 +68,7 @@ struct CurrentMonthExpensesView: View {
                 }
             }
         }
-        .navigationDestination(for: AcqModel.self, destination: { value in
+        .navigationDestination(for: ExpenseModel.self, destination: { value in
             CategoryView(acquisition: value)
         })
         .onChange(of: selectedSector, { oldValue, newValue in
@@ -102,17 +87,17 @@ struct CurrentMonthExpensesView: View {
     private func createChartData() {
         chartData = mockData
         // Group by category
-            .reduce(into: [:]) { result, acqModel in
-                result[acqModel.category, default: []].append(acqModel)
+            .reduce(into: [:]) { result, ExpenseModel in
+                result[ExpenseModel.category, default: []].append(ExpenseModel)
             }
         // Calculate total price for each category
             .map { category, models in
-                AcqModel(
+                ExpenseModel(
                     name: models.first?.name ?? "ERROR",
                     date: Date(),
                     price: models.reduce(0.0) { $0 + $1.price },
                     category: category,
-                    notes: nil
+                    notes: ""
                 )
             }
             .sorted(by: { $0.price < $1.price })

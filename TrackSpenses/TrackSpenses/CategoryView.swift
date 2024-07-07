@@ -11,7 +11,7 @@ import SwiftUI
 struct CategoryView: View {
     
     /// let categoryExpense: AcqModel
-    var acquisition: AcqModel
+    var acquisition: ExpenseModel
     
     var body: some View {
         Text("\(acquisition.category.rawValue) for \(acquisition.price)")

@@ -6,21 +6,25 @@
 //
 
 import Foundation
-import SwiftData
 
 enum ExpenseCategory: String, CaseIterable, Codable {
     case food, entertainment, rent, savings, installments, others
 }
 
-class AcqModel: Hashable {
+class ExpenseModel {
     
     var name: String = ""
     var date: Date = Date.now
     var price: Double = 0.0
     var category: ExpenseCategory = ExpenseCategory.others
-    var notes: String?
+    var notes: String = ""
     
-    init(name: String = "", date: Date, price: Double, category: ExpenseCategory = .others, notes: String?) {
+    init(name: String = "",
+         date: Date = .now,
+         price: Double = 0.0,
+         category: ExpenseCategory = .others,
+         notes: String = "")
+    {
         self.name = name
         self.date = date
         self.price = price
@@ -28,15 +32,22 @@ class AcqModel: Hashable {
         self.notes = notes
     }
     
-    static func == (lhs: AcqModel, rhs: AcqModel) -> Bool {
+    func resetProperties() {
+        name = ""
+        date = .now
+        price = 0.0
+        category = .food
+        notes = ""
+    }
+}
+
+extension ExpenseModel: Hashable {
+    
+    static func == (lhs: ExpenseModel, rhs: ExpenseModel) -> Bool {
         lhs.name == rhs.name && lhs.category == rhs.category
     }
     
     func hash(into hasher: inout Hasher) {
-        hasher.combine(name)
         hasher.combine(date)
-        hasher.combine(price)
-        hasher.combine(category)
-        hasher.combine(notes)
     }
 }

@@ -12,11 +12,12 @@
 		9D16AC1D2BE4CB2700FBAF47 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D16AC1C2BE4CB2700FBAF47 /* HistoryView.swift */; };
 		9D2A38282BE4C98900881F04 /* TrackSpensesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2A38272BE4C98900881F04 /* TrackSpensesApp.swift */; };
 		9D2A382A2BE4C98900881F04 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2A38292BE4C98900881F04 /* RootView.swift */; };
-		9D2A382C2BE4C98900881F04 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2A382B2BE4C98900881F04 /* Item.swift */; };
 		9D2A382E2BE4C98A00881F04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D2A382D2BE4C98A00881F04 /* Assets.xcassets */; };
 		9D2A38312BE4C98A00881F04 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D2A38302BE4C98A00881F04 /* Preview Assets.xcassets */; };
+		9D482DCA2C3ABBA600D55FA0 /* ExpenseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D482DC92C3ABBA600D55FA0 /* ExpenseMock.swift */; };
+		9D482DCC2C3ABCCF00D55FA0 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D482DCB2C3ABCCF00D55FA0 /* Double+Extension.swift */; };
 		9D8A53F82BE7A94E00BD3CB0 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A53F72BE7A94E00BD3CB0 /* Date+Extension.swift */; };
-		9D8D2B162BE6B5B30008B471 /* AcqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8D2B152BE6B5B30008B471 /* AcqModel.swift */; };
+		9D8D2B162BE6B5B30008B471 /* ExpenseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8D2B152BE6B5B30008B471 /* ExpenseModel.swift */; };
 		9DBAA2CC2BE7DEB300D4FFB4 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAA2CB2BE7DEB300D4FFB4 /* CategoryView.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,11 +28,12 @@
 		9D2A38242BE4C98900881F04 /* TrackSpenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackSpenses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D2A38272BE4C98900881F04 /* TrackSpensesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackSpensesApp.swift; sourceTree = "<group>"; };
 		9D2A38292BE4C98900881F04 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
-		9D2A382B2BE4C98900881F04 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		9D2A382D2BE4C98A00881F04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D2A38302BE4C98A00881F04 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9D482DC92C3ABBA600D55FA0 /* ExpenseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseMock.swift; sourceTree = "<group>"; };
+		9D482DCB2C3ABCCF00D55FA0 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		9D8A53F72BE7A94E00BD3CB0 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
-		9D8D2B152BE6B5B30008B471 /* AcqModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcqModel.swift; sourceTree = "<group>"; };
+		9D8D2B152BE6B5B30008B471 /* ExpenseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseModel.swift; sourceTree = "<group>"; };
 		9DBAA2CB2BE7DEB300D4FFB4 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,15 +67,15 @@
 		9D2A38262BE4C98900881F04 /* TrackSpenses */ = {
 			isa = PBXGroup;
 			children = (
-				9DBAA2CA2BE7DE7E00D4FFB4 /* TabItemsViews */,
+				9DBAA2CA2BE7DE7E00D4FFB4 /* UI */,
 				9D8D2B172BE6B75F0008B471 /* Extensions */,
 				9D8D2B142BE6B59A0008B471 /* Models */,
 				9D2A38272BE4C98900881F04 /* TrackSpensesApp.swift */,
 				9D2A38292BE4C98900881F04 /* RootView.swift */,
-				9D2A382B2BE4C98900881F04 /* Item.swift */,
 				9D2A382D2BE4C98A00881F04 /* Assets.xcassets */,
 				9D2A382F2BE4C98A00881F04 /* Preview Content */,
 				9DBAA2CB2BE7DEB300D4FFB4 /* CategoryView.swift */,
+				9D482DC92C3ABBA600D55FA0 /* ExpenseMock.swift */,
 			);
 			path = TrackSpenses;
 			sourceTree = "<group>";
@@ -89,7 +91,7 @@
 		9D8D2B142BE6B59A0008B471 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				9D8D2B152BE6B5B30008B471 /* AcqModel.swift */,
+				9D8D2B152BE6B5B30008B471 /* ExpenseModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -98,18 +100,19 @@
 			isa = PBXGroup;
 			children = (
 				9D8A53F72BE7A94E00BD3CB0 /* Date+Extension.swift */,
+				9D482DCB2C3ABCCF00D55FA0 /* Double+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		9DBAA2CA2BE7DE7E00D4FFB4 /* TabItemsViews */ = {
+		9DBAA2CA2BE7DE7E00D4FFB4 /* UI */ = {
 			isa = PBXGroup;
 			children = (
 				9D16AC182BE4CAE900FBAF47 /* CurrentMonthExpensesView.swift */,
 				9D16AC1A2BE4CB1700FBAF47 /* AddExpenseView.swift */,
 				9D16AC1C2BE4CB2700FBAF47 /* HistoryView.swift */,
 			);
-			path = TabItemsViews;
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,11 +188,12 @@
 				9D16AC192BE4CAE900FBAF47 /* CurrentMonthExpensesView.swift in Sources */,
 				9D2A382A2BE4C98900881F04 /* RootView.swift in Sources */,
 				9D16AC1B2BE4CB1700FBAF47 /* AddExpenseView.swift in Sources */,
-				9D2A382C2BE4C98900881F04 /* Item.swift in Sources */,
 				9D16AC1D2BE4CB2700FBAF47 /* HistoryView.swift in Sources */,
 				9D8A53F82BE7A94E00BD3CB0 /* Date+Extension.swift in Sources */,
-				9D8D2B162BE6B5B30008B471 /* AcqModel.swift in Sources */,
+				9D482DCA2C3ABBA600D55FA0 /* ExpenseMock.swift in Sources */,
+				9D8D2B162BE6B5B30008B471 /* ExpenseModel.swift in Sources */,
 				9D2A38282BE4C98900881F04 /* TrackSpensesApp.swift in Sources */,
+				9D482DCC2C3ABCCF00D55FA0 /* Double+Extension.swift in Sources */,
 				9DBAA2CC2BE7DEB300D4FFB4 /* CategoryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,12 +331,13 @@
 				DEVELOPMENT_TEAM = 5UUM37YTC2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_CFBundleDisplayName = Trackspenses;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -340,6 +345,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.octav.TrackSpenses;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -357,12 +366,13 @@
 				DEVELOPMENT_TEAM = 5UUM37YTC2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_CFBundleDisplayName = Trackspenses;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -370,6 +380,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.octav.TrackSpenses;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
